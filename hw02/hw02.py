@@ -32,11 +32,7 @@ def product(n, term):
     162
     """
     "*** YOUR CODE HERE ***"
-<<<<<<< HEAD
     res = 1
-=======
-    res = 0
->>>>>>> main
     while n > 0:
         res *= term(n)
         n -= 1
