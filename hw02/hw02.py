@@ -65,6 +65,11 @@ def accumulate(merger, start, n, term):
     16
     """
     "*** YOUR CODE HERE ***"
+    res = start
+    while n > 0:
+        res = merger(res, term(n))
+        n -= 1
+    return res
 
 
 def summation_using_accumulate(n, term):
