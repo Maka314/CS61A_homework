@@ -31,7 +31,6 @@ def product(n, term):
     >>> product(3, triple)    # 1*3 * 2*3 * 3*3
     162
     """
-    "*** YOUR CODE HERE ***"
     res = 1
     while n > 0:
         res *= term(n)
@@ -64,7 +63,6 @@ def accumulate(merger, start, n, term):
     >>> accumulate(lambda x, y: (x + y) % 17, 19, 20, square)
     16
     """
-    "*** YOUR CODE HERE ***"
     res = start
     while n > 0:
         res = merger(res, term(n))
@@ -86,7 +84,6 @@ def summation_using_accumulate(n, term):
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(summation_using_accumulate)).body[0].body]
     ['Expr', 'Return']
     """
-    "*** YOUR CODE HERE ***"
     return(accumulate(add, 0, n, term))
     
 
@@ -105,7 +102,6 @@ def product_using_accumulate(n, term):
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(product_using_accumulate)).body[0].body]
     ['Expr', 'Return']
     """
-    "*** YOUR CODE HERE ***"
     return(accumulate(mul, 1, n, term))
 
 
@@ -135,10 +131,9 @@ def funception(func1, start):
     >>> func2_6 = funception(func1, -1)
     >>> func2_6(4)    # Returns None since start < 0
     """
-    "*** YOUR CODE HERE ***"
     def res_func(end_num):
         if start >= end_num:
-            end_num += 1
+            end_num = start + 1 #Bug appeared, used to be 'end_num += 1'
         if start < 0:
             return(None)
         res, i = 1, start
@@ -216,4 +211,3 @@ def lambda_math_syntax_check():
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(add_results)).body[0].body]
     ['Expr', 'Return']
     """
-    
