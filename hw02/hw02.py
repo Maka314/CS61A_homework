@@ -87,6 +87,8 @@ def summation_using_accumulate(n, term):
     ['Expr', 'Return']
     """
     "*** YOUR CODE HERE ***"
+    return(accumulate(add, 0, n, term))
+    
 
 
 def product_using_accumulate(n, term):
@@ -104,6 +106,8 @@ def product_using_accumulate(n, term):
     ['Expr', 'Return']
     """
     "*** YOUR CODE HERE ***"
+    return(accumulate(mul, 1, n, term))
+
 
 
 def funception(func1, start):
@@ -132,6 +136,18 @@ def funception(func1, start):
     >>> func2_6(4)    # Returns None since start < 0
     """
     "*** YOUR CODE HERE ***"
+    def res_func(end_num):
+        if start >= end_num:
+            end_num += 1
+        if start < 0:
+            return(None)
+        res, i = 1, start
+        while i < end_num:
+            res *= func1(i)
+            i += 1
+        return res
+    return(res_func)
+
 
 
 def mul_by_num(num):
@@ -145,7 +161,7 @@ def mul_by_num(num):
     >>> y(-4)
     -8
     """
-    return ______
+    return lambda x : x*num
 
 
 def mod_maker():
@@ -159,7 +175,7 @@ def mod_maker():
     >>> mod(8,4) # 8 % 4
     True
     """
-    return ______
+    return lambda x, y: True if x % y == 0 else x % y
 
 
 def add_results(f1, f2):
@@ -182,7 +198,7 @@ def add_results(f1, f2):
     >>> a3(4)
     44
     """
-    return ______
+    return lambda x : f1(x)+f2(x)
 
 
 def lambda_math_syntax_check():
@@ -200,3 +216,4 @@ def lambda_math_syntax_check():
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(add_results)).body[0].body]
     ['Expr', 'Return']
     """
+    
